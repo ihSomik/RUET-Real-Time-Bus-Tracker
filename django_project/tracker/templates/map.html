@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <title>RUET OnTrack</title>
+  <link rel="stylesheet" href="/static/style.css" />
+  <link rel="icon" href="/static/images/bus-icon.png" />
+  <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet" />
+</head>
+
+<body>
+  <header class="header">
+    <div class="header-content">
+      <img
+        src="https://scontent.fdac14-1.fna.fbcdn.net/v/t39.30808-6/484905106_621358067463666_4578759742492340477_n.jpg?_nc_cat=105&ccb=1-7&_nc_sid=833d8c&_nc_ohc=36fnHveVia0Q7kNvwHvlHm8&_nc_oc=Adlw_pBUN1-cOCyyj4eqbargSP70G50eKRDsI3lMfWvSqE1lky_mLeEQrFLiBOeT_FM&_nc_zt=23&_nc_ht=scontent.fdac14-1.fna&_nc_gid=8-DIU786AhhpL4mBjVnNMw&oh=00_AfPewUX41D2qVM4NCbK1AeN88Apqbj9Oz3sEQMSU8sfulg&oe=685F3E6F"
+        alt="RUET Bus" class="bus-image" />
+
+      <div class="typing-text">
+        <h1><span id="typing"></span><span class="cursor">|</span></h1>
+        <p class="live-status">🟢 Live updates every 5 seconds</p>
+      </div>
+
+      <a href="https://www.ruet.ac.bd/" target="_blank" rel="noopener noreferrer">
+        <img src="https://saif1024bd.wordpress.com/wp-content/uploads/2011/06/ruet-monogram-1545x1850.png"
+          alt="RUET Logo" class="ruet-logo" />
+      </a>
+
+    </div>
+  </header>
+
+
+  <section class="stopages-section">
+    <h2>📍 Bus Stopages</h2>
+    <div class="stopages-marquee">
+      <div class="stopages-container">
+        <div class="stopage-block color1">Talaimari mor</div>
+        <div class="stopage-block color2">Hadir mor</div>
+        <div class="stopage-block color3">Alupotti</div>
+        <div class="stopage-block color4">Shaheb Bazar (Zero Point)</div>
+        <div class="stopage-block color5">Sadar Hospital Mor</div>
+        <div class="stopage-block color1">Fire Brigade Mor</div>
+        <div class="stopage-block color2">C&amp;B Mor</div>
+        <div class="stopage-block color3">Lakshmipur Mor</div>
+        <div class="stopage-block color4">Bondho Gate</div>
+        <div class="stopage-block color5">Bornali</div>
+        <div class="stopage-block color1">Panir Tank</div>
+        <div class="stopage-block color2">Railgate</div>
+        <div class="stopage-block color3">Rail Station</div>
+        <div class="stopage-block color4">Vodra</div>
+        <div class="stopage-block color5">Adarsha School Mor</div>
+        <div class="stopage-block color1">RUET Admin Building</div>
+
+        <!-- Duplicate for smooth infinite scrolling -->
+        <div class="stopage-block color1">Talaimari mor</div>
+        <div class="stopage-block color2">Hadir mor</div>
+        <div class="stopage-block color3">Alupotti</div>
+        <div class="stopage-block color4">Shaheb Bazar (Zero Point)</div>
+        <div class="stopage-block color5">Sadar Hospital Mor</div>
+        <div class="stopage-block color1">Fire Brigade Mor</div>
+        <div class="stopage-block color2">C&amp;B Mor</div>
+        <div class="stopage-block color3">Lakshmipur Mor</div>
+        <div class="stopage-block color4">Bondho Gate</div>
+        <div class="stopage-block color5">Bornali</div>
+        <div class="stopage-block color1">Panir Tank</div>
+        <div class="stopage-block color2">Railgate</div>
+        <div class="stopage-block color3">Rail Station</div>
+        <div class="stopage-block color4">Vodra</div>
+        <div class="stopage-block color5">Adarsha School Mor</div>
+        <div class="stopage-block color1">RUET Admin Building</div>
+      </div>
+    </div>
+  </section>
+
+
+
+  <main>
+    <div id="map"></div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-content">
+      <a href="https://www.ruet.ac.bd/section_details/transport-section" target="_blank" title="RUET Transport Section">
+        🚍 Transport
+      </a>
+      <span>|</span>
+      <a href="https://www.ruet.ac.bd/page/campus-map" target="_blank" title="RUET Campus Map">
+        🗺️ Campus Map
+      </a>
+      <span>|</span>
+      <a href="https://www.urp.ruet.ac.bd/public/storage/notices/vehicle-section-class-trips.pdf" target="_blank"
+        title="RUET Bus Schedule">
+        📄 Bus Schedule
+      </a>
+    </div>
+  </footer>
+
+
+  <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDNrdhpO6GBOmjZABMOil1Txe7ws1N69Q8&callback=initMap"
+    async defer></script>
+  <script src="/static/features.js"></script>
+  <script>
+    const text = "RUET Real-Time Bus Tracker<br><span style='font-size: 0.5em;'>.......Heaven's Light is Our Guide.......</span>";
+    let index = 0;
+    let current = "";
+
+    function type() {
+      const typingElement = document.getElementById("typing");
+
+      if (index < text.length) {
+        current += text.charAt(index);
+        typingElement.innerHTML = current;
+        index++;
+        setTimeout(type, 100);
+      }
+    }
+
+    window.onload = type;
+  </script>
+
+</body>
+
+</html>
